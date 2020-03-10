@@ -4,20 +4,20 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use App\Pastel;
+
 class homeController extends Controller
 {
-    public function index()
+    public function inicio()
     {
-        return view('welcome');
-    }
-
-    public function guarda(Request $r)
-    {
-        dd($r->nombre.' '.$r->apellidop.' '.$r->apellidom);
+        $datos=Pastel::all();
+        //dd($datos);
+        return view('welcome')->with('datos',$datos);
     }
 
     public function detalle($id)
     {
-        return "Hola esta es la pagina para mostrar ".$id;
+        $dato = Pastel::find($id);
+        return view('detalle')->with('dato',$dato);
     }
 }

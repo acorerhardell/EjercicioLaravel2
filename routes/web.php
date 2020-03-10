@@ -11,8 +11,6 @@
 |
 */
 
-Route::get('/','HomeController@index');
-
-Route::post('/guarda','HomeController@guarda');
-
-Route::get('/detalle/{id}','HomeController@detalle');
+Route::get('/','HomeController@inicio');
+//Whitecard{id}
+Route::get('/{id}','Homecontroller@detalle');

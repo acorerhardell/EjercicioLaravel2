@@ -9,31 +9,18 @@
         <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
         </head>
     <body>
-        <h2>Titulo</h2>
-        <div class="container">
-            <form action="/guarda" method="POST">
-                @csrf
-                <div class="form-group">
-                    <label for="Nombre">Nombre</label>
-                    <input class="form-control" type="text"  name="nombre" id="Nombre" Required>
+        <h2 class=" h2 text-center">Vista</h2>
+        <div class="container-xl d-flex justify-content-around">
+            @foreach ($datos as $dato)
+            <div class="card" style="width: 18rem;">
+                <div class="card-body">
+                  <h5 class="card-title">{{$dato->nombre}}</h5>
+                  <h6 class="card-subtitle mb-2 text-muted">{{$dato->sabor}}</h6>
+                  <p class="card-text">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Non repellat est iste fugit, assumenda nemo?</p>
+                  <p class="card-text"><small class="text-muted">${{$dato->precio}}</small></p>
+                <a href="{{$dato->id}}" class="btn btn-primary">Comprar</a>
                 </div>
-                <div class="form-group">
-                    <label for="apellidop">Apellido Paterno</label>
-                    <input class="form-control" type="text"  name="apellidop" id="apellidop" Required>
-                </div>
-    
-                <div class="form-group">
-                    <label for="apellidom">Apellido Materno</label>
-                    <input class="form-control" type="text" name="apellidom" id="apellidom" Required>
-                </div>
-                <button type="submit" class="btn btn-primary">Enviar</button>
-            </form>
-            
-            <div class="container">
-                
-                <a href="/detalle/12" class="btn btn-success">12</a>
-                <a href="/detalle/35" class="btn btn-success">35</a>
-                <a href="/detalle/64" class="btn btn-success">64</a>
-            </div>
+              </div>
+            @endforeach
         </div>
 </html>
